@@ -56,7 +56,6 @@ LoopPass:
 		for i := 0; i < len(fields); i += 2 {
 			key := fields[i]
 			value := fields[i+1]
-		Switch:
 			switch key {
 			case "byr":
 				year,err := strconv.Atoi(value)
@@ -94,26 +93,15 @@ LoopPass:
 					continue LoopPass
 				}
 			case "hcl":
-				color := value[1:]
-				if value[0] != '#' || len(color) != 6 {
+				if !regexp.MustCompile("^#[0-9a-f]{6}$").MatchString(value) {
 					continue LoopPass
 				}
-				for _, r := range color {
-					if (r < 'a' || 'f' < r) && (r < '0' || r > '9') {
-						continue LoopPass
-					}
-				}
 			case "ecl":
-				colors := []string{"amb", "blu", "brn", "gry", "grn", "hzl", "oth"}
-				for _, color := range colors {
-					if value == color {
-						break Switch
-					}
+				if !regexp.MustCompile("^(amb|blu|brn|gry|grn|hzl|oth)$").MatchString(value) {
+					continue LoopPass
 				}
-				continue LoopPass
 			case "pid":
-				_, err := strconv.Atoi(value)
-				if len(value) != 9 || err != nil {
+				if !regexp.MustCompile("^[0-9]{9}$").MatchString(value) {
 					continue LoopPass
 				}
 			case "cid":
