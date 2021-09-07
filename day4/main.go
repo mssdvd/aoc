@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
+	"os"
 	"regexp"
 	"strconv"
 	"strings"
@@ -118,7 +118,7 @@ LoopPass:
 }
 
 func main() {
-	f, err := ioutil.ReadFile("./input")
+	f, err := os.ReadFile("./input")
 	check(err)
 
 	passwords := regexp.MustCompile("(?m)"+"^$").Split(string(f), -1)
