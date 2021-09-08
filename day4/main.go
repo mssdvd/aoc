@@ -58,19 +58,19 @@ LoopPass:
 			value := fields[i+1]
 			switch key {
 			case "byr":
-				year,err := strconv.Atoi(value)
+				year, err := strconv.Atoi(value)
 				check(err)
 				if year < 1920 || 2002 < year {
 					continue LoopPass
 				}
 			case "iyr":
-				year,err := strconv.Atoi(value)
+				year, err := strconv.Atoi(value)
 				check(err)
 				if year < 2010 || 2020 < year {
 					continue LoopPass
 				}
 			case "eyr":
-				year,err := strconv.Atoi(value)
+				year, err := strconv.Atoi(value)
 				check(err)
 				if year < 2020 || 2030 < year {
 					continue LoopPass

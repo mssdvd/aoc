@@ -29,7 +29,7 @@ func main() {
 	defer f.Close()
 
 	var max int
-	var takenSeats [127*8+7]bool
+	var takenSeats [127*8 + 7]bool
 	s := bufio.NewScanner(f)
 	for s.Scan() {
 		code := s.Text()

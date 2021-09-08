@@ -30,7 +30,6 @@ func part1(fields []string) bool {
 	return false
 }
 
-
 func part2(fields []string) bool {
 	first, e := strconv.Atoi(fields[0])
 	check(e)
@@ -52,7 +51,6 @@ func part2(fields []string) bool {
 	}
 	return false
 }
-
 
 func main() {
 	f, e := os.Open("./input")
