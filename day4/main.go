@@ -80,8 +80,7 @@ LoopPass:
 				check(err)
 				unit := value[len(value)-2:]
 
-				var min int
-				var max int
+				var min, max int
 				if unit == "cm" {
 					min = 150
 					max = 193

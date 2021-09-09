@@ -15,8 +15,7 @@ func check(err error) {
 func travel(grid []string, right int, down int) int {
 	lineLen := len(grid[0])
 
-	var j int
-	var trees int
+	var j, trees int
 
 	for i := down; i < len(grid); i += down {
 		j = (j + right) % lineLen

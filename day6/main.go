@@ -18,8 +18,7 @@ func main() {
 
 	groups := regexp.MustCompile("(?m)"+"^$\n").Split(string(f), -1)
 
-	var countAnyone int
-	var countEveryone int
+	var countAnyone, countEveryone int
 
 	for _, group := range groups {
 		answers := make(map[rune]int)

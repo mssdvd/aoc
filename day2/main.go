@@ -57,8 +57,7 @@ func main() {
 	check(e)
 	defer f.Close()
 
-	var valid1 int
-	var valid2 int
+	var valid1, valid2 int
 	s := bufio.NewScanner(f)
 	for s.Scan() {
 		entry := s.Text()
