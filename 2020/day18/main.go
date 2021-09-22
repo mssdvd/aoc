@@ -32,7 +32,7 @@ func main() {
 			}
 			switch el {
 			case '*', '+':
-				for checkOpenParen(opStack) {
+				for checkOpenParen(opStack) && checkPrecedence(el, opStack[len(opStack)-1]) {
 					calc(&stack, &opStack)
 				}
 				opStack = append(opStack, el)
@@ -55,6 +55,11 @@ func main() {
 	check(s.Err())
 
 	fmt.Printf("sum: %v\n", sum)
+}
+
+// checkPrecedence returns true if b has greater precedence than a or if they are equal
+func checkPrecedence(a, b rune) bool {
+	return a == '*' && b == '+' || a == b
 }
 
 func checkOpenParen(opStack []rune) bool {
