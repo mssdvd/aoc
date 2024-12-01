@@ -44,5 +44,16 @@ func main() {
 		}
 	}
 
+	// TODO: Part2
+	// See the Chinese Remainder Theorem
+
+	// From HN: had no idea WTF the Chinese Remainder Theorem was and
+	// just worked out the issue iteratively. All you had to know was
+	// that if you are trying to find some large number that is
+	// divisible by other prime numbers, the deltas between the
+	// candidates will be the product of the numbers.  as in, if you
+	// are trying to find a number that is divisible by both 37 and
+	// 41, you really just need to find numbers divisible by 1517.
+
 	fmt.Println("ID * wait:", earliestBusID*min)
 }
