@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	f, err := os.Open("./input")
+	f, err := os.Open("./input_example")
 	check(err)
 	defer f.Close()
 
